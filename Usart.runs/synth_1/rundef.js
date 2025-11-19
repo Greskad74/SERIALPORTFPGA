@@ -5,17 +5,13 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //
 
-echo "This script was generated under a different operating system."
-echo "Please update the PATH variable below, before executing this script"
-exit
-
 var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "/home/greskad74/Vivado/2025/2025.1/Vitis/bin:/home/greskad74/Vivado/2025/2025.1/Vivado/ids_lite/ISE/bin/lin64;/home/greskad74/Vivado/2025/2025.1/Vivado/bin;";
+  PathVal = "C:/Xilinx/2025.1.1/Vitis/bin;C:/Xilinx/2025.1.1/Vivado/ids_lite/ISE/bin/nt64;C:/Xilinx/2025.1.1/Vivado/ids_lite/ISE/lib/nt64;C:/Xilinx/2025.1.1/Vivado/bin;";
 } else {
-  PathVal = "/home/greskad74/Vivado/2025/2025.1/Vitis/bin:/home/greskad74/Vivado/2025/2025.1/Vivado/ids_lite/ISE/bin/lin64;/home/greskad74/Vivado/2025/2025.1/Vivado/bin;" + PathVal;
+  PathVal = "C:/Xilinx/2025.1.1/Vitis/bin;C:/Xilinx/2025.1.1/Vivado/ids_lite/ISE/bin/nt64;C:/Xilinx/2025.1.1/Vivado/ids_lite/ISE/lib/nt64;C:/Xilinx/2025.1.1/Vivado/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;
@@ -28,7 +24,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log echo.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source echo.tcl" );
+         "-log uart_padovan.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_padovan.tcl" );
 
 
 

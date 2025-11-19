@@ -1,7 +1,7 @@
 -------------------------------------
-| Tool Version : Vivado v.2025.1
-| Date         : Mon Nov 10 00:44:33 2025
-| Host         : debian
+| Tool Version : Vivado v.2025.1.1
+| Date         : Tue Nov 18 22:24:47 2025
+| Host         : DESKTOP-HLRNI0H
 | Design       : design_1
 | Device       : xc7a35t-cpg236-1--
 -------------------------------------
