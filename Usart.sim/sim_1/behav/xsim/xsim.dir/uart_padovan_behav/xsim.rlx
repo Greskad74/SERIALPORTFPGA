@@ -1,0 +1,12 @@
+
+{ 
+    crc :  15557915166199649903  , 
+    ccp_crc :  0  , 
+    cmdline : " --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_padovan_behav xil_defaultlib.uart_padovan xil_defaultlib.glbl" , 
+    buildDate : "Sep 11 2025" , 
+    buildTime : "21:29:11" , 
+    linkCmd : "C:\\Xilinx\\2025.1.1\\Vivado\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/uart_padovan_behav/xsimk.exe\"   \"xsim.dir/uart_padovan_behav/obj/xsim_0.win64.obj\" \"xsim.dir/uart_padovan_behav/obj/xsim_1.win64.obj\" -L\"C:\\Xilinx\\2025.1.1\\Vivado\\lib\\win64.o\" -lxv_simulator_kernel   -lxv_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.runs/synth_1/uart_padovan.tcl"
+  variable script "/home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.runs/synth_1/uart_padovan.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,28 +56,30 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
+set_param chipscope.maxJobs 2
 set_param general.usePosixSpawnForFork 1
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.cache/wt [current_project]
-set_property parent.project_path C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.xpr [current_project]
+set_property webtalk.parent_dir /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.cache/wt [current_project]
+set_property parent.project_path /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-set_property ip_output_repo c:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.cache/ip [current_project]
+set_property ip_output_repo /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Padovan.sv
-  C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Rx.sv
-  C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Tx.sv
-  C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/uart_combinado.sv
+  /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Padovan.sv
+  /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Rx.sv
+  /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Tx.sv
+  /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/mooser.sv
+  /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/uart_combinado.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -88,12 +90,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Basys-3-Master.xdc
-set_property used_in_implementation false [get_files C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Basys-3-Master.xdc]
+read_xdc /home/greskad74/barbosa/repo/SERIALPORTFPGA/Basys-3-Master.xdc
+set_property used_in_implementation false [get_files /home/greskad74/barbosa/repo/SERIALPORTFPGA/Basys-3-Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/utils_1/imports/synth_1/uart.dcp
+read_checkpoint -auto_incremental -incremental /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.srcs/utils_1/imports/synth_1/uart.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

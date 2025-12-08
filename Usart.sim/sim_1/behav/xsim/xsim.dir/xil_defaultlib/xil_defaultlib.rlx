@@ -1,0 +1,10 @@
+0.7
+2020.2
+Sep 11 2025
+21:29:11
+C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.sim/sim_1/behav/xsim/glbl.v,1748340170,verilog,,,,glbl,,uvm,,,,,,
+C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sim_1/new/tb.sv,1764134596,systemVerilog,,,,tb_uart_padovan,,uvm,../../../../../../../../../Xilinx/2025.1.1/Vivado/data/rsb/busdef,,,,,
+C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Padovan.sv,1763962478,systemVerilog,,C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Rx.sv,,mqe,,uvm,../../../../../../../../../Xilinx/2025.1.1/Vivado/data/rsb/busdef,,,,,
+C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Rx.sv,1763229115,systemVerilog,,C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Tx.sv,,Rx,,uvm,../../../../../../../../../Xilinx/2025.1.1/Vivado/data/rsb/busdef,,,,,
+C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/Tx.sv,1763229115,systemVerilog,,C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/uart_combinado.sv,,Tx,,uvm,../../../../../../../../../Xilinx/2025.1.1/Vivado/data/rsb/busdef,,,,,
+C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sources_1/new/uart_combinado.sv,1764128142,systemVerilog,,C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sim_1/new/tb.sv,,uart_padovan,,uvm,../../../../../../../../../Xilinx/2025.1.1/Vivado/data/rsb/busdef,,,,,

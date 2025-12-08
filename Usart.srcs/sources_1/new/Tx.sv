@@ -4,7 +4,7 @@ module Tx #(
 ) (
     input  logic        clk,
     input  logic        reset,
-    input  logic        ready,      // debe mantenerse activa hasta que tdre=0
+    input  logic        ready,      // pulso de 1 ciclo para iniciar transmisión
     input  logic [7:0]  tx_data,
     output logic        TxD,
     output logic        tdre        // 1 = listo para nuevo dato
@@ -13,7 +13,7 @@ module Tx #(
     localparam real REAL_CYCLES_PER_BIT = real'(CLOCK_FREQ) / real'(BAUD_RATE);
     localparam integer CYCLES_PER_BIT = int'(REAL_CYCLES_PER_BIT + 0.5);
     localparam integer BAUD_MAX = (CYCLES_PER_BIT == 0) ? 0 : (CYCLES_PER_BIT - 1);
-    localparam integer BAUD_CNT_WIDTH = $clog2(BAUD_MAX + 1);
+    localparam integer BAUD_CNT_WIDTH = (BAUD_MAX == 0) ? 1 : $clog2(BAUD_MAX + 1);
 
     typedef enum logic [1:0] {
         S_MARK,
@@ -27,30 +27,29 @@ module Tx #(
     logic [7:0] txbuff;
     logic [2:0] bit_count;
     logic [BAUD_CNT_WIDTH-1:0] baud_count;
-    logic ready_synced;
-
-    // Sincronización de la señal ready
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            ready_synced <= 0;
-        end else begin
-            ready_synced <= ready;
-        end
-    end
+    
+    // Detección de flanco de ready
+    logic ready_prev;
+    logic ready_posedge;
+    
+    assign ready_posedge = !ready_prev && ready;
 
     // FSM register
     always_ff @(posedge clk or posedge reset) begin
-        if (reset)
+        if (reset) begin
             state <= S_MARK;
-        else
+            ready_prev <= 0;
+        end else begin
             state <= next_state;
+            ready_prev <= ready;
+        end
     end
 
     // Next state logic
     always_comb begin
         next_state = state;
         case (state)
-            S_MARK:  if (ready_synced && tdre) next_state = S_START;
+            S_MARK:  if (tdre && ready_posedge) next_state = S_START;
             S_START: if (baud_count == BAUD_MAX) next_state = S_DATA;
             S_DATA:  if ((baud_count == BAUD_MAX) && (bit_count == 3'd7)) 
                          next_state = S_STOP;
@@ -74,11 +73,10 @@ module Tx #(
                     baud_count <= '0;
                     bit_count <= '0;
                     
-                    if (ready_synced && tdre) begin
+                    // Capturar datos cuando hay flanco de subida en ready
+                    if (ready_posedge && tdre) begin
                         txbuff <= tx_data;
-                        tdre <= 1'b0;
-                    end else begin
-                        tdre <= 1'b1;
+                        tdre <= 1'b0;  // Transmisión en progreso
                     end
                 end
 
@@ -106,6 +104,7 @@ module Tx #(
                     TxD <= 1'b1;
                     if (baud_count == BAUD_MAX) begin
                         baud_count <= '0;
+                        tdre <= 1'b1;  // Transmisión completada
                     end else begin
                         baud_count <= baud_count + 1;
                     end

@@ -1,0 +1,7 @@
+Running: xsim.dir/tb_uart_padovan_behav/xsimk.exe -simmode gui -wdb tb_uart_padovan_behav.wdb -simrunnum 0 -socket 54402
+Design successfully loaded
+Design Loading Memory Usage: 10876 KB (Peak: 10876 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 20912 KB (Peak: 20912 KB)
+Simulation CPU Usage: 6562 ms

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1763526220" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/uart.dcp">
-  <File Type="PA-TCL" Name="uart_padovan.tcl"/>
-  <File Type="REPORTS-TCL" Name="uart_padovan_reports.tcl"/>
-  <File Type="RDS-RDS" Name="uart_padovan.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="uart_padovan_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="uart_padovan_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="uart_padovan_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="uart_padovan.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1765155412" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/uart.dcp">
   <File Type="VDS-TIMINGSUMMARY" Name="uart_padovan_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="uart_padovan.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="uart_padovan_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="uart_padovan_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="uart_padovan_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="uart_padovan.vds"/>
+  <File Type="REPORTS-TCL" Name="uart_padovan_reports.tcl"/>
   <File Type="VDS-TIMING-PB" Name="uart_padovan_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="uart_padovan.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Padovan.sv">
@@ -26,6 +26,13 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/Tx.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/mooser.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

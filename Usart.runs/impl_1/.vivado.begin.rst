@@ -1,15 +1,45 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="zayam" Host="DESKTOP-HLRNI0H" Pid="8556" HostCore="16" HostMemory="034282708992">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="11703" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="zayam" Host="DESKTOP-HLRNI0H" Pid="25592" HostCore="16" HostMemory="034282708992">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="19020" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="zayam" Host="DESKTOP-HLRNI0H" Pid="20232" HostCore="16" HostMemory="034282708992">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="28262" HostCore="8" HostMemory="11993540">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="4194" HostCore="8" HostMemory="11993540">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="16869" HostCore="8" HostMemory="11993540">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="3355" HostCore="8" HostMemory="11993540">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="4629" HostCore="8" HostMemory="11993540">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="18898" HostCore="8" HostMemory="11993540">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="7263" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>

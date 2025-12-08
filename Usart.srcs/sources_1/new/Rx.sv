@@ -5,10 +5,9 @@ module Rx(
     input  logic        reset,      
     input  logic        RxD,       
     output logic [7:0]  RxData,
-     output logic        data_valid      
+    output logic        data_valid      
 );
 
-    
     parameter int clk_freq    = 100_000_000;
     parameter int baud_rate   = 115200;
     parameter int div_sample  = 4;
@@ -16,7 +15,6 @@ module Rx(
     parameter int mid_sample  = div_sample / 2;
     parameter int div_bit     = 10; 
 
-   
     typedef enum logic {IDLE=0, RECEIVING=1} state_t;
 
     state_t          state, nextstate;
@@ -30,17 +28,20 @@ module Rx(
     logic clear_bitcounter, inc_bitcounter;
     logic clear_samplecounter, inc_samplecounter;
 
-    
     assign RxData = rxshift_reg[8:1];
 
-   
+    // ✅ SOLO UN always_ff para data_valid
     always_ff @(posedge clk_fpga or posedge reset) begin
         if (reset) begin
             state           <= IDLE;
             bit_counter     <= 0;
             sample_counter  <= 0;
             baudrate_counter<= 0;
+            rxshift_reg     <= '1;
+            data_valid      <= 1'b0;
         end else begin
+            data_valid <= 1'b0; // ✅ Default: data_valid = 0
+            
             baudrate_counter <= baudrate_counter + 1;
 
             if (baudrate_counter >= div_counter - 1) begin
@@ -59,18 +60,23 @@ module Rx(
                     bit_counter <= 0;
                 else if (inc_bitcounter)
                     bit_counter <= bit_counter + 1;
+                    
+                // ✅ Solo activar data_valid cuando se completa la recepción
+                if (state == RECEIVING && bit_counter == div_bit - 1 && sample_counter == div_sample - 1) begin
+                    data_valid <= 1'b1;
+                end
             end
         end
     end
 
-    
+    // Lógica combinacional
     always_comb begin
         shift               = 0;
         clear_samplecounter = 0;
         inc_samplecounter   = 0;
         clear_bitcounter    = 0;
         inc_bitcounter      = 0;
-        nextstate           = IDLE;
+        nextstate           = state;
 
         case (state)
             IDLE: begin
@@ -78,20 +84,16 @@ module Rx(
                     nextstate           = RECEIVING;
                     clear_bitcounter    = 1;
                     clear_samplecounter = 1;
-                end else begin
-                    nextstate = IDLE;
                 end
             end
 
             RECEIVING: begin
-                nextstate = RECEIVING;
-
                 if (sample_counter == mid_sample - 1)
                     shift = 1;
 
                 if (sample_counter == div_sample - 1) begin
                     if (bit_counter == div_bit - 1)
-                        nextstate = IDLE; // Done receiving
+                        nextstate = IDLE;
                     inc_bitcounter    = 1;
                     clear_samplecounter = 1;
                 end else begin
@@ -101,19 +103,6 @@ module Rx(
 
             default: nextstate = IDLE;
         endcase
-    end
-    assign RxData = rxshift_reg[8:1];
-
-    always_ff @(posedge clk_fpga or posedge reset) begin
-        if (reset) begin
-            data_valid <= 1'b0;
-        end else begin
-            
-            data_valid <= (state == RECEIVING) && 
-                         (bit_counter == div_bit - 1) && 
-                         (sample_counter == div_sample - 1) &&
-                         (baudrate_counter >= div_counter - 1);
-        end
     end
 
 endmodule

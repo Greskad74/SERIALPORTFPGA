@@ -1,0 +1,40 @@
+Time resolution is 1 ps
+t=271405000 | TXD_BYTE = 0x49 (I)
+t=358365000 | TXD_BYTE = 0x6e (n)
+t=445325000 | TXD_BYTE = 0x67 (g)
+t=532285000 | TXD_BYTE = 0x72 (r)
+t=619245000 | TXD_BYTE = 0x65 (e)
+t=706205000 | TXD_BYTE = 0x73 (s)
+t=793165000 | TXD_BYTE = 0x65 (e)
+t=880125000 | TXD_BYTE = 0x20 ( )
+t=967085000 | TXD_BYTE = 0x6e (n)
+t=1054045000 | TXD_BYTE = 0x75 (u)
+t=1141005000 | TXD_BYTE = 0x6d (m)
+t=1227965000 | TXD_BYTE = 0x65 (e)
+t=1314925000 | TXD_BYTE = 0x72 (r)
+t=1401885000 | TXD_BYTE = 0x6f (o)
+t=1488845000 | TXD_BYTE = 0x73 (s)
+t=1575805000 | TXD_BYTE = 0x20 ( )
+t=1662765000 | TXD_BYTE = 0x70 (p)
+t=1749725000 | TXD_BYTE = 0x61 (a)
+t=1836685000 | TXD_BYTE = 0x72 (r)
+t=1923645000 | TXD_BYTE = 0x61 (a)
+t=2010605000 | TXD_BYTE = 0x20 ( )
+t=2097565000 | TXD_BYTE = 0x50 (P)
+t=2184525000 | TXD_BYTE = 0x61 (a)
+t=2271485000 | TXD_BYTE = 0x64 (d)
+t=2358445000 | TXD_BYTE = 0x6f (o)
+t=2445405000 | TXD_BYTE = 0x76 (v)
+t=2532365000 | TXD_BYTE = 0x61 (a)
+
+=== UART OUTPUT COMPLETO ===
+Ingrese numeros para Padova
+
+$finish called at time : 2555800 ns : File "C:/Users/zayam/barbosa/repo/SERIALPORTFPGA/Usart.srcs/sim_1/new/tb.sv" Line 115
+t=2619325000 | TXD_BYTE = 0x6e (n)
+t=2706285000 | TXD_BYTE = 0x3a (:)
+t=2793245000 | TXD_BYTE = 0x20 ( )
+t=2880205000 | TXD_BYTE = 0x0d (
+)
+t=2967165000 | TXD_BYTE = 0x0a (
+)
