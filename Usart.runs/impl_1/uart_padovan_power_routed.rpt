@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-| Date             : Sun Dec  7 19:01:53 2025
+| Date             : Mon Dec  8 22:39:26 2025
 | Host             : greskad74-vivobookasuslaptopx515jax515ja running 64-bit Loc-OS Linux 23 (Con Tutti)
 | Command          : report_power -file uart_padovan_power_routed.rpt -pb uart_padovan_power_summary_routed.pb -rpx uart_padovan_power_routed.rpx
 | Design           : uart_padovan
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.078        |
+| Total On-Chip Power (W)  | 0.077        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.006        |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |     2346 |       --- |             --- |
-|   LUT as Logic |     0.002 |     1347 |     20800 |            6.48 |
-|   CARRY4       |    <0.001 |      211 |      8150 |            2.59 |
-|   Register     |    <0.001 |      416 |     41600 |            1.00 |
-|   F7/F8 Muxes  |    <0.001 |        5 |     32600 |            0.02 |
-|   Others       |     0.000 |        8 |       --- |             --- |
-| Signals        |     0.001 |     1831 |       --- |             --- |
+| Slice Logic    |     0.002 |     2405 |       --- |             --- |
+|   LUT as Logic |     0.002 |     1384 |     20800 |            6.65 |
+|   CARRY4       |    <0.001 |      215 |      8150 |            2.64 |
+|   Register     |    <0.001 |      427 |     41600 |            1.03 |
+|   F7/F8 Muxes  |    <0.001 |        2 |     32600 |           <0.01 |
+|   Others       |     0.000 |        9 |       --- |             --- |
+| Signals        |     0.002 |     1869 |       --- |             --- |
 | I/O            |    <0.001 |       12 |       106 |           11.32 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.078 |          |           |                 |
+| Total          |     0.077 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 

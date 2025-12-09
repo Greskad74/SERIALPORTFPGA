@@ -3,8 +3,8 @@
 # SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Sun Dec  7 18:56:57 2025
-# Process ID         : 6944
+# Start of session at: Mon Dec  8 22:37:02 2025
+# Process ID         : 1308
 # Current directory  : /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.runs/synth_1
 # Command line       : vivado -log uart_padovan.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_padovan.tcl
 # Log file           : /home/greskad74/barbosa/repo/SERIALPORTFPGA/Usart.runs/synth_1/uart_padovan.vds
@@ -13,12 +13,12 @@
 # Platform           : Debian
 # Operating System   : Loc-OS Linux 23 (Con Tutti)
 # Processor Detail   : Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz
-# CPU Frequency      : 2318.027 MHz
+# CPU Frequency      : 1706.138 MHz
 # CPU Physical cores : 4
 # CPU Logical cores  : 8
 # Host memory        : 12281 MB
 # Swap memory        : 0 MB
 # Total Virtual      : 12281 MB
-# Available Virtual  : 6033 MB
+# Available Virtual  : 7858 MB
 #-----------------------------------------------------------
 source uart_padovan.tcl -notrace

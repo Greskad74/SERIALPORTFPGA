@@ -1,45 +1,35 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="11703" HostCore="8" HostMemory="11993540">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="3947" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="19020" HostCore="8" HostMemory="11993540">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="18313" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="28262" HostCore="8" HostMemory="11993540">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="1152" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="4194" HostCore="8" HostMemory="11993540">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="20049" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="16869" HostCore="8" HostMemory="11993540">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="2631" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="3355" HostCore="8" HostMemory="11993540">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="16748" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="4629" HostCore="8" HostMemory="11993540">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="18898" HostCore="8" HostMemory="11993540">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="7263" HostCore="8" HostMemory="11993540">
+    <Process Command="vivado" Owner="greskad74" Host="greskad74-vivobookasuslaptopx515jax515ja" Pid="1659" HostCore="8" HostMemory="11993540">
     </Process>
 </ProcessHandle>
