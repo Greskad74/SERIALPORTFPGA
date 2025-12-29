@@ -11,9 +11,6 @@ module uart_padovan #(
     output logic [7:0] led     // debug: parte baja del resultado
 );
 
-    // ================================
-    // UART RX
-    // ================================
     logic [7:0] rx_data;
     logic       rx_valid;
 
@@ -28,9 +25,7 @@ module uart_padovan #(
         .data_valid(rx_valid)
     );
 
-    // ================================
-    // UART TX
-    // ================================
+    
     logic [7:0] tx_data;
     logic       tx_ready;
     logic       tx_free;   // tdre de Tx
@@ -47,9 +42,7 @@ module uart_padovan #(
         .tdre   (tx_free)
     );
 
-    // ================================
-    // Instancias PADOVAN y MOSER
-    // ================================
+   
     logic        start_pad;
     logic [7:0]  n_pad;
     logic [31:0] pad_out;
@@ -78,27 +71,22 @@ module uart_padovan #(
         .ready (ready_mos)
     );
 
-    // ================================
-    // Mensajes (ROMs simples)
-    // ================================
-    // Menú: "Elige una sucesion, donde 1 es Padovan y 2 es Moser:\r\n"
+    
+    // Mensajes 
+    
     localparam int MENU_LEN = 55;
     logic [7:0] menu_msg [0:MENU_LEN-1];
     logic [5:0] menu_idx;
 
-    // Prompt Padovan: "Ingrese N numeros para Padovan:\r\n"
     localparam int PAD_MSG_LEN = 34;
     logic [7:0] padovan_msg [0:PAD_MSG_LEN-1];
     logic [5:0] pad_idx;
 
-    // Prompt Moser: "Ingrese N numeros para Moser:\r\n"
     localparam int MOS_MSG_LEN = 34;
     logic [7:0] moser_msg [0:MOS_MSG_LEN-1];
     logic [5:0] mos_idx;
 
-    // ================================
-    // FSM principal
-    // ================================
+    
     typedef enum logic [3:0] {
         S_SEND_MENU,
         S_WAIT_MENU_TX,
@@ -131,17 +119,14 @@ module uart_padovan #(
 
     // Resultado
     logic [31:0] result_reg;
-    logic [7:0]  result_chars [0:3];  // hasta 4 dígitos
+    logic [7:0]  result_chars [0:3];  
     logic [1:0]  result_idx;
 
-    logic [7:0]  ch;         // auxiliar para prompts
+    logic [7:0]  ch;        
 
-    // ================================
-    // Lógica secuencial
-    // ================================
+    
     always_ff @(posedge clk) begin
         if (clr) begin
-            // ---------- Reset global ----------
             state       <= S_SEND_MENU;
             tx_ready    <= 1'b0;
             menu_idx    <= 6'd0;
@@ -167,7 +152,6 @@ module uart_padovan #(
             n_pad     <= 8'd0;
             n_mos     <= 8'd0;
 
-            // ---------- Inicializar mensajes ----------
             // Menú
             menu_msg[0]  <= "E";
             menu_msg[1]  <= "l";
@@ -265,16 +249,13 @@ module uart_padovan #(
             moser_msg[31] <= 8'h0A; // LF
 
         end else begin
-            // ---------- Ciclo normal ----------
             tx_ready   <= 1'b0;
             start_pad  <= 1'b0;
             start_mos  <= 1'b0;
 
             case (state)
 
-                // ==========================
-                //  MENÚ INICIAL
-                // ==========================
+                
                 S_SEND_MENU: begin
                     if (menu_idx < MENU_LEN) begin
                         if (tx_free) begin
@@ -294,9 +275,7 @@ module uart_padovan #(
                     end
                 end
 
-                // ==========================
-                // ELECCIÓN DE SUCESIÓN
-                // ==========================
+                
                 S_WAIT_SELECTION: begin
                     if (rx_valid) begin
                         // Echo
@@ -311,7 +290,6 @@ module uart_padovan #(
                             have_sel <= 1'b1;
 
                         end else if (rx_data == 8'h0D || rx_data == 8'h0A) begin
-                            // Enter: confirmar selección si hay una válida
                             if (have_sel) begin
                                 if (sel_reg == "1")
                                     seq_sel <= 2'd1; // Padovan
@@ -328,9 +306,7 @@ module uart_padovan #(
                     end
                 end
 
-                // ==========================
-                // PROMPT PARA N
-                // ==========================
+                
                 S_SEND_PROMPT: begin
                     if (seq_sel == 2'd1) begin
                         ch = padovan_msg[pad_idx];
@@ -371,9 +347,7 @@ module uart_padovan #(
                     end
                 end
 
-                // ==========================
-                // LECTURA DE N (multi-dígito, echo, Enter)
-                // ==========================
+               
                 S_WAIT_DIGIT: begin
                     if (rx_valid) begin
                         // Echo del carácter que escribe el usuario
@@ -399,9 +373,7 @@ module uart_padovan #(
                     end
                 end
 
-                // ==========================
-                // LANZAR CÁLCULO
-                // ==========================
+              
                 S_START_COMPUTE: begin
                     if (seq_sel == 2'd1) begin
                         // PADOVAN: el usuario sigue la convención
@@ -430,9 +402,7 @@ module uart_padovan #(
                     end
                 end
 
-                // ==========================
-                // ESPERAR RESULTADO
-                // ==========================
+              
                 S_WAIT_RESULT: begin
                     if (seq_sel == 2'd1) begin
                         if (ready_pad) begin
@@ -449,9 +419,7 @@ module uart_padovan #(
                     end
                 end
 
-                // ==========================
-                // PREPARAR RESULTADO ASCII (0-9999)
-                // ==========================
+                
                 S_PREP_RESULT: begin
                     if (result_reg >= 32'd1000) begin
                         result_chars[0] <= (result_reg / 32'd1000)                    + 8'h30;
@@ -479,9 +447,7 @@ module uart_padovan #(
                     state      <= S_SEND_RESULT_DIGIT;
                 end
 
-                // ==========================
-                // ENVIAR RESULTADO
-                // ==========================
+               
                 S_SEND_RESULT_DIGIT: begin
                     if (result_idx < 4 && result_chars[result_idx] != 8'h00) begin
                         if (tx_free) begin
@@ -501,9 +467,7 @@ module uart_padovan #(
                     end
                 end
 
-                // ==========================
-                // CR + LF
-                // ==========================
+               
                 S_SEND_CR: begin
                     if (tx_free) begin
                         tx_data  <= 8'h0D;
